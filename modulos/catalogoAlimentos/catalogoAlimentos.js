@@ -17,7 +17,7 @@ let obj = []; // Arreglo que se llenará de objetos JSON
 let indexProductosSeleccionados;
 
 
-fetch('https://AvrilAnaya.github.io/Zarape/modulos/catalogoAlimentos/datosAlimentos.json')
+fetch('modulos/catalogoAlimentos/datosAlimentos.json')
     .then((response) => {
         return response.json();
     })
