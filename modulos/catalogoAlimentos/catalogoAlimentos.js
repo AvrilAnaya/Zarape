@@ -15,9 +15,9 @@ document.getElementById("btnLimpiar").classList.add("disabled"); // se desactiva
 
 let obj = []; // Arreglo que se llenará de objetos JSON
 let indexProductosSeleccionados;
-let path= "http://localhost:8080/zarape_pro/modulos/catalogoAlimentos/";
 
-fetch(path + "datosAlimentos.json")
+
+fetch('https://AvrilAnaya.github.io/Zarape/modulos/catalogoAlimentos/datosAlimentos.json')
     .then((response) => {
         return response.json();
     })
