@@ -16,9 +16,9 @@ document.getElementById("btnLimpiar").classList.add("disabled");
 let indexUsuarioSeleccionada = -1; // Inicialmente, ningún usuario está seleccionado
 let usuarios = []; // Arreglo para almacenar los usuarios
 
-const path = "http://localhost:8080/zarape_pro/modulos/catalogoUsuarios/";
+//const path = "http://localhost:8080/zarape_pro/modulos/catalogoUsuarios/";
 
-fetch(path + "datosUsuarios.json")
+fetch("datosUsuarios.json")
     .then(response => response.json())
     .then(jsondata => {
         usuarios = jsondata;

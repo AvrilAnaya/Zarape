@@ -25,9 +25,9 @@ document.getElementById("btnLimpiar").classList.add("disabled"); // se desactiva
 let indexSucursalSeleccionada = -1;// Inicialmente, ninguna sucursal está seleccionada
 let sucursales = []; // Arreglo para almacenar las sucursales
 
-let path= "http://localhost:8080/zarape_pro/modulos/catalogoSucursal/";
+//let path= "http://localhost:8080/zarape_pro/modulos/catalogoSucursal/";
 
-fetch(path + "datosSucursal.json")
+fetch("datosSucursal.json")
     .then((response) => {
         return response.json();
     })

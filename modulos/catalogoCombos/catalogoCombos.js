@@ -14,9 +14,9 @@ let indexProductosSeleccionados;
 
 actualizaTabla();
 
-let path = "http://localhost:8080/zarape_pro/modulos/catalogoCombos/";
+//let path = "http://localhost:8080/zarape_pro/modulos/catalogoCombos/";
 
-fetch(path + "datosCombos.json")
+fetch("datosCombos.json")
     .then((response) => {
         return response.json();
     })
@@ -42,28 +42,17 @@ function actualizaTabla() {
     });
     document.getElementById("tblProductos").innerHTML = cuerpo;
 }
-async function despliegaFoto() {
-    try {
-        let imageURL = obtenerNombreFoto(); 
-        imageURL = path + imageURL;
-
-        const response = await fetch(imageURL);
-        if (!response.ok) {
-            throw new Error("Imagen no encontrada");
-        }
-
-        const imageBlob = await response.blob();
-        const reader = new FileReader();
-        reader.onloadend = function () {
-            document.getElementById('txtFoto').src = reader.result;
+function despliegaFoto(event) {
+    const input = event.target;
+    const reader = new FileReader();
+                
+    reader.onload = function() {
+        const imgElement = document.getElementById('txtFoto');
+        imgElement.src = reader.result;
         };
-        reader.readAsDataURL(imageBlob);
-    } catch (error) {
-        alert("Error: " + error.message);
-        document.getElementById('txtFoto').src = "img/nada.jpeg";
-    }
-}
-
+                
+        reader.readAsDataURL(input.files[0]);
+        }
 
 function selectProducto(index) {
     document.getElementById("txtNombre").value = obj[index].nombre;
